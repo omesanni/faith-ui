@@ -27,15 +27,16 @@ export default defineConfig({
     globals: true,
     include: ['src/**/*.test.{ts,tsx}'],
     coverage: {
+      lines: 80,
+      functions: 80,
+      branches: 80,
+      statements: 80,
       include: [
         'src/components/**/*.{ts,tsx}',
         'src/hooks/**/*.{ts,tsx}',
         'src/utils/**/*.{ts,tsx}',
       ],
-      exclude: [
-        'src/**/*.stories.tsx',
-        'src/**/*.test.{ts,tsx}',
-      ],
+      exclude: ['src/**/*.stories.tsx', 'src/**/*.test.{ts,tsx}'],
     },
   },
   build: {

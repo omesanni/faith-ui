@@ -1,5 +1,5 @@
+import { classNames } from '@/utils';
 import React from 'react';
-import { cn } from '@/utils';
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
@@ -23,7 +23,7 @@ function Button({
   disabled,
   ...props
 }: Props): React.JSX.Element {
-  const classes = cn(
+  const classes = classNames(
     'transition duration-150 ease-in-out cursor-pointer text-sm font-medium py-2 px-4 rounded-md focus:outline-0',
     VARIANTS[variant],
     { 'disabled:pointer-events-none disabled:opacity-50': disabled },

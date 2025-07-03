@@ -3,13 +3,8 @@ import { mergeConfig } from 'vite';
 import path from 'node:path';
 
 const config: StorybookConfig = {
-  stories: [
-    '../src/components/**/*.stories.tsx'
-  ],
-  addons: [
-    '@storybook/addon-essentials',
-    '@storybook/addon-actions',
-  ],
+  stories: ['../src/components/**/*.stories.tsx'],
+  addons: ['@storybook/addon-essentials', '@storybook/addon-actions'],
   framework: {
     name: '@storybook/react-vite',
     options: {},

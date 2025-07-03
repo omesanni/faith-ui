@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import Button from '.';
 
-describe('Button', () => { 
+describe('Button', () => {
   it('renders primary button by default', () => {
     render(<Button>primary</Button>);
     expect(screen.getByText('primary')).toHaveClass('bg-blue-600');
@@ -11,7 +11,7 @@ describe('Button', () => {
     render(<Button variant="secondary">secondary</Button>);
     expect(screen.getByText('secondary')).toHaveClass('bg-[#f3f3f3]');
   });
-        
+
   it('renders outline button', () => {
     render(<Button variant="outline">outline</Button>);
     expect(screen.getByText('outline')).toHaveClass('border-blue-600');

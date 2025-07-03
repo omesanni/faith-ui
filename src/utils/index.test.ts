@@ -1,7 +1,7 @@
-import { cn } from '.';
+import { classNames } from '.';
 
-describe('cn', () => {
+describe('classNames', () => {
   it('returns appropriate class', () => {
-    expect(cn('flex', { disabled: true })).toBe('flex disabled');
+    expect(classNames('flex', { disabled: true })).toBe('flex disabled');
   });
 });

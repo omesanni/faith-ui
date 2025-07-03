@@ -15,6 +15,13 @@
   "files": [
     "dist"
   ],
+  "lint-staged": {
+    "**/*.{js,ts,tsx}": [
+      "npm run lint",
+      "npm test -T src",
+      "npm run test:cov -T src"
+    ]
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -24,7 +31,8 @@
     "test": "vitest --run",
     "test:watch": "vitest --watch",
     "test:ui": "vitest --ui",
-    "test:cov": "vitest --coverage"
+    "test:cov": "vitest --coverage",
+    "prepare": "husky"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -50,7 +58,9 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.2.0",
+    "husky": "^9.1.7",
     "jsdom": "^26.1.0",
+    "lint-staged": "^16.1.2",
     "storybook": "^8.6.14",
     "tailwindcss": "^4.1.10",
     "typescript": "~5.8.3",

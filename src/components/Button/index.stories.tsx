@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Args, Meta, StoryObj } from '@storybook/react';
 import Button from '.';
 
 const meta: Meta<typeof Button> = {
@@ -53,4 +53,28 @@ export const Danger: StoryObj<typeof Button> = {
     variant: 'danger',
     disabled: false,
   },
+};
+
+export const Disabled: StoryObj<typeof Button> = {
+  args: { disabled: true },
+  parameters: {
+    controls: { exclude: ['variant', 'children'] },
+  },
+  render: (args: Args): React.JSX.Element => (
+    <div className="flex space-x-4">
+      <Button {...args}>Primary Button</Button>
+      <Button {...args} variant="secondary">
+        Secondary Button
+      </Button>
+      <Button {...args} variant="outline">
+        Outline Button
+      </Button>
+      <Button {...args} variant="ghost">
+        Ghost Button
+      </Button>
+      <Button {...args} variant="danger">
+        Danger Button
+      </Button>
+    </div>
+  ),
 };

@@ -1,5 +1,4 @@
 import { classNames } from '@/utils';
-import React from 'react';
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
@@ -32,10 +31,10 @@ function Button({
 
   return (
     <button
+      {...props}
       type={type}
       className={classes}
       disabled={disabled}
-      {...props}
     >
       {children}
     </button>

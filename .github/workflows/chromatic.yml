@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
-      - run: npm
+      - run: npm install
       #👇 Adds Chromatic as a step in the workflow
       - uses: chromaui/action@latest
         # Options required for Chromatic's GitHub Action

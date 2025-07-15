@@ -61,6 +61,7 @@ function Persona({
 
       return cloneElement(badge, {
         className: classNames(
+          'absolute',
           map[key]?.[size === 'xl' ? size : 'default'],
           className,
         ),

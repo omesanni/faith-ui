@@ -25,7 +25,7 @@ function PersonaBadge({
   outlineColor = 'white',
 }: Props): React.JSX.Element {
   const classes = classNames(
-    'absolute text-xs px-1 text-white flex items-center place-content-center min-w-3.5 min-h-3.5',
+    'text-xs px-1 text-white flex items-center place-content-center min-w-3.5 min-h-3.5',
     PERSONA_BADGE_COLORS[color],
     `border-2 ${RING_COLORS[outlineColor]}`,
     { 'rounded-full': isRounded },

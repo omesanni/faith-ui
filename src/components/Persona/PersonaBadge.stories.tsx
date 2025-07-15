@@ -1,4 +1,3 @@
-import { classNames } from '@/utils';
 import type { Args, Meta, StoryObj } from '@storybook/react';
 import { PersonaBadge } from '.';
 
@@ -14,7 +13,7 @@ export default meta;
 
 export const Default: StoryObj<typeof PersonaBadge> = {
   render: (args: Args): React.JSX.Element => (
-    <div className="flex items-center justify-center bg-gray-200 p-4">
+    <div className="flex w-10 items-center justify-center bg-gray-200 p-4">
       <PersonaBadge {...args} />
     </div>
   ),
@@ -25,31 +24,15 @@ export const BackgroundColor: StoryObj<typeof PersonaBadge> = {
     controls: { exclude: ['color', 'dataTestId'] },
   },
   render: (args: Args): React.JSX.Element => (
-    <div className="flex relative w-30 items-center justify-center bg-gray-200 p-4 space-x-4">
-      <PersonaBadge
-        {...args}
-        color="orange"
-        className={classNames('left-[4px]', args.className)}
-      >
+    <div className="flex w-50 relative items-center justify-center bg-gray-200 p-4 space-x-4">
+      <PersonaBadge {...args} color="orange">
         2
       </PersonaBadge>
-      <PersonaBadge
-        {...args}
-        color="blue"
-        className={classNames('left-[30px]', args.className)}
-      >
+      <PersonaBadge {...args} color="blue">
         300
       </PersonaBadge>
-      <PersonaBadge
-        {...args}
-        color="lime"
-        className={classNames('left-[70px]', args.className)} 
-      />
-      <PersonaBadge
-        {...args}
-        color="purple"
-        className={classNames('left-[95px]', args.className)}
-      />
+      <PersonaBadge {...args} color="lime" />
+      <PersonaBadge {...args} color="purple" />
     </div>
   ),
 };
@@ -59,12 +42,11 @@ export const OutlineColor: StoryObj<typeof PersonaBadge> = {
     controls: { exclude: ['color', 'outlineColor', 'dataTestId'] },
   },
   render: (args: Args): React.JSX.Element => (
-    <div className="flex relative w-30 items-center justify-center bg-gray-200 p-4 space-x-4">
+    <div className="flex w-50 relative items-center justify-center bg-gray-200 p-4 space-x-4">
       <PersonaBadge
         {...args}
         color="orange"
-        outlineColor="rose"
-        className={classNames('left-[8px]', args.className)}
+        outlineColor="purple"
       >
         4
       </PersonaBadge>
@@ -72,7 +54,6 @@ export const OutlineColor: StoryObj<typeof PersonaBadge> = {
         {...args}
         color="blue"
         outlineColor="sky"
-        className={classNames('left-[37px]', args.className)}
       > 
         10
       </PersonaBadge>
@@ -80,13 +61,11 @@ export const OutlineColor: StoryObj<typeof PersonaBadge> = {
         {...args}
         color="lime"
         outlineColor="green"
-        className={classNames('left-[71px]', args.className)} 
       />
       <PersonaBadge
         {...args}
         color="sky"
         outlineColor="orange"
-        className={classNames('left-[96px]', args.className)}
       />
     </div>
   ),
@@ -97,17 +76,9 @@ export const SquareBadge: StoryObj<typeof PersonaBadge> = {
     controls: { exclude: ['isRounded', 'dataTestId'] },
   },
   render: (args: Args): React.JSX.Element => (
-    <div className="relative flex items-center justify-center w-20 bg-gray-200 p-4">
-      <PersonaBadge
-        {...args}
-        isRounded={false}
-        className="left-[12px]"
-      />
-      <PersonaBadge
-        {...args}
-        isRounded={false}
-        className="left-[36px]"
-      >
+    <div className="space-x-4 w-28 flex items-center justify-center bg-gray-200 p-4">
+      <PersonaBadge {...args} isRounded={false} />
+      <PersonaBadge {...args} isRounded={false}>
         20
       </PersonaBadge>
     </div>

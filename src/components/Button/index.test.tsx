@@ -14,7 +14,7 @@ describe('Button', () => {
 
   it('renders outline button', () => {
     render(<Button variant="outline">outline</Button>);
-    expect(screen.getByText('outline')).toHaveClass('border-blue-600');
+    expect(screen.getByText('outline')).toHaveClass('outline-1 outline-blue-600');
   });
 
   it('renders ghost button', () => {

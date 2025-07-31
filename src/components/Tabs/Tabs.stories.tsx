@@ -335,6 +335,7 @@ export const CustomClasses: StoryObj<typeof Tabs> = {
     tabListClassName: `
       border-0 [&>button:not([aria-selected="true"]):hover]:text-orange-500
       [&>button.primary-tab[aria-selected="true"]]:text-orange-500
+      [&>button:not(.primary-tab[aria-selected="true"])]:rounded-full
     `,
   },
   parameters: {

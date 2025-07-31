@@ -19,7 +19,7 @@ describe('Button', () => {
 
   it('renders ghost button', () => {
     render(<Button variant="ghost">ghost</Button>);
-    expect(screen.getByText('ghost')).toHaveClass('hover:bg-[#f3f3f3]');
+    expect(screen.getByText('ghost')).toHaveClass('hover:enabled:bg-[#f3f3f3]');
   });
 
   it('renders danger button', () => {

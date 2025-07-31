@@ -21,8 +21,8 @@ function Switch({
 }: Props) {
   const btnClasses = classNames(
     'h-[18px] w-8 shadow-xs rounded-full transition-colors duration-200 ease-in-out',
+    'disabled:cursor-not-allowed disabled:opacity-50',
     { 'bg-[#dddddd]': !checked, 'bg-blue-600': checked },
-    { 'disabled:pointer-events-none disabled:opacity-50': disabled },
     className,
   );
   const spanClasses = classNames(

@@ -12,7 +12,7 @@ function RightArrowIcon({
   rotate,
   width = 24,
   height = 24,
-}: Props): React.JSX.Element {
+}: Readonly<Props>): React.JSX.Element {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

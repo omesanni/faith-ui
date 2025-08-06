@@ -20,7 +20,7 @@ const ScrollButtons = memo(({
   showScrollableButtons,
   forwardButtonClassName,
   backwardButtonClassName,
-}: Props): React.ReactNode => {
+}: Readonly<Props>): React.ReactNode => {
   const prevIsVertical = useRef<boolean | undefined>(undefined);
   const btnRef = useRef<HTMLButtonElement>(null);
   const [btnStyle, setBtnStyle] = useState({});

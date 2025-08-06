@@ -23,7 +23,7 @@ const Button = forwardRef(
     children,
     disabled,
     ...props
-  }: Props,
+  }: Readonly<Props>,
   ref: ForwardedRef<HTMLButtonElement>,
 ): React.JSX.Element => {
   const classes = classNames(

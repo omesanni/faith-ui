@@ -1,19 +1,14 @@
 import { memo } from 'react';
 
-export interface Props {
+export type Props = Readonly<{
   id: string;
   disabled?: boolean;
   header: React.ReactNode;
   children: React.ReactNode;
   className?: string;
   dataTestId?: string;
-}
+}>;
 
-function Tab({ children }: Props): React.ReactNode {
-  return children;
-}
+const Tab = memo(({ children }: Props): React.ReactNode => children);
 
-const MemoTab = memo(Tab);
-MemoTab.displayName = 'Tab';
-
-export default MemoTab;
+export default Tab;

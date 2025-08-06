@@ -2,10 +2,11 @@ import { classNames } from '@/utils';
 import {
   Children,
   type JSX,
+  memo,
   type ReactElement,
   useMemo,
 } from 'react';
-import Avatar from './Persona';
+import Persona from './Persona';
 import { GROUP_HOVER_EFFECTS, GROUP_STACK_SPACING } from './constants';
 
 interface Props {
@@ -33,7 +34,7 @@ interface Props {
   ) => ReactElement;
 }
 
-function PersonaGroup({
+const PersonaGroup = memo(({
   max = 0,
   children,
   stacked = true,
@@ -41,7 +42,7 @@ function PersonaGroup({
   maxElemClassName,
   renderMaxElement,
   hoverEffect,
-}: Props): JSX.Element {
+}: Readonly<Props>): JSX.Element => {
   const personas = useMemo((): ReactElement[] => {
     const isMultipleChildren = Array.isArray(children);
     const getClasses = (i: number): string | undefined => {
@@ -81,7 +82,7 @@ function PersonaGroup({
           {renderMaxElement ? (
             renderMaxElement(invisibleChildren, visibleChildren)
           ) : (
-            <Avatar
+            <Persona
               text={`+${remainingCount}`}
               className={maxElemClassName}
             />
@@ -105,6 +106,6 @@ function PersonaGroup({
       {personas}
     </div>
   );
-}
+});
 
 export default PersonaGroup;

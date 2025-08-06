@@ -13,14 +13,14 @@ interface Props {
   backwardButtonClassName?: string;
 }
 
-function ScrollButtons({
+const ScrollButtons = memo(({
   navRef,
   isVertical,
   variant,
   showScrollableButtons,
   forwardButtonClassName,
   backwardButtonClassName,
-}: Props): React.ReactNode {
+}: Props): React.ReactNode => {
   const prevIsVertical = useRef<boolean | undefined>(undefined);
   const btnRef = useRef<HTMLButtonElement>(null);
   const [btnStyle, setBtnStyle] = useState({});
@@ -85,7 +85,8 @@ function ScrollButtons({
 
   useEffect(() => {
     if (btnRef?.current && shouldRenderButtons) {
-      // calculate the central position of where to place the scroll buttons
+      // calculate the central position of where to place the
+      // scroll buttons on the tab list
       const btnWidth = btnRef.current.offsetWidth ?? 0;
       const pixelsToMidpointOfNav = (navRef.current!.offsetWidth / 2) - btnWidth;
       const leftPos = (btnWidth / 2) + pixelsToMidpointOfNav;
@@ -167,6 +168,6 @@ function ScrollButtons({
     );
   }
   return undefined;
-}
+});
 
-export default memo(ScrollButtons);
+export default ScrollButtons;

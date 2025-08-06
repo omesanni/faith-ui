@@ -12,7 +12,7 @@ import useUnderlineIndicatorStyle from './hooks/useUnderlineIndicatorStyle';
 import ScrollButtons from './ScrollButtons';
 import type { Props as TabProps } from './Tab';
 
-export interface Props {
+export type Props = Readonly<{
   /** The tab content displayed inside Tabs. */
   children: ReactElement<TabProps> | ReactElement<TabProps>[];
   /** Current selected tab. */
@@ -42,9 +42,9 @@ export interface Props {
   forwardScrollButtonClassName?: string;
   /** Extra CSS classes to apply to the backward scroll button. */
   backwardScrollButtonClassName?: string;
-}
+}>;
 
-function Tabs({
+const Tabs = memo(({
   children,
   activeTab = '',
   onChange,
@@ -58,7 +58,7 @@ function Tabs({
   variant = VARIANTS.primary,
   orientation = ORIENTATION.horizontal,
   showScrollableButtons = true,
-}: Props): React.JSX.Element {
+}: Props): React.JSX.Element => {
   const navRef = useRef<HTMLElement>(null);
   const tabsRef = useRef<Record<string, HTMLButtonElement>>({});
   const isPrimary = variant === VARIANTS.primary;
@@ -69,7 +69,7 @@ function Tabs({
 
   const tabList = useMemo((): React.JSX.Element[] => Children.map(
     children,
-    ({ props }: ReactElement<TabProps>): React.JSX.Element => {
+    ({ props }: ReactElement<TabProps>, i: number): React.JSX.Element => {
       const isSelected = isActive(props.id);
       const { tab } = ORIENTATION_CLASSES;
       const { border, active, [orientation]: orient } = tab[variant];
@@ -86,7 +86,7 @@ function Tabs({
       return (
         <button
           id={id}
-          key={id}
+          key={`${props.id}-${i}`}
           role="tab"
           type="button"
           className={classes}
@@ -185,9 +185,6 @@ function Tabs({
       )}
     </div>
   );
-}
+});
 
-const MemoTabs = memo(Tabs);
-MemoTabs.displayName = 'Tabs';
-
-export default MemoTabs;
+export default Tabs;

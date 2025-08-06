@@ -23,7 +23,7 @@ function PersonaBadge({
   className,
   dataTestId,
   outlineColor = 'white',
-}: Props): React.JSX.Element {
+}: Readonly<Props>): React.JSX.Element {
   const classes = classNames(
     'text-xs px-1 text-white flex items-center place-content-center min-w-3.5 min-h-3.5',
     PERSONA_BADGE_COLORS[color],

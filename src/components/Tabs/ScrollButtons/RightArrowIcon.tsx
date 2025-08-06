@@ -1,13 +1,13 @@
 import { memo } from 'react';
 import { ROTATE_ICON_CLASS } from '../constants';
 
-// AUTHOR: Ankush Syal https://www.svgrepo.com/svg/520912/right-arrow
 interface Props {
   width?: number;
   height?: number;
   rotate?: keyof typeof ROTATE_ICON_CLASS;
 }
 
+// AUTHOR: Ankush Syal https://www.svgrepo.com/svg/520912/right-arrow
 function RightArrowIcon({
   rotate,
   width = 24,

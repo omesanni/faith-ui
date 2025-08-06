@@ -1,5 +1,5 @@
 import { classNames } from '@/utils';
-import { cloneElement, useCallback } from 'react';
+import { cloneElement, memo, useCallback } from 'react';
 import { PERSONA_BADGE_PLACEMENT, PERSONA_SIZES, RING_COLORS } from './constants';
 
 interface Props {
@@ -35,7 +35,7 @@ interface Props {
   extraImageProps?: Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'src' | 'alt'>;
 }
 
-function Persona({
+const Persona = memo(({
   alt,
   src,
   text,
@@ -50,7 +50,7 @@ function Persona({
   withRingOffset = true,
   badgePlacement = 'top-right',
   extraImageProps,
-}: Props): React.JSX.Element {
+}: Readonly<Props>): React.JSX.Element => {
   const getBadge = useCallback((): React.ReactNode => {
     if (badge) {
       const key = withRing ? 'ringWithOutline' : 'noRingWithOutline';
@@ -110,6 +110,6 @@ function Persona({
       {getBadge()}
     </span>
   );
-}
+});
 
 export default Persona;

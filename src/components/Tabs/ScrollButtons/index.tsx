@@ -132,7 +132,7 @@ const ScrollButtons = memo(({
             ref={btnRef}
             data-testid="before-btn"
             className={classNames(className, backwardButtonClassName)}
-            onClick={() => scrollToPosition(-100)}
+            onClick={(): void => scrollToPosition(-100)}
           >
             <RightArrowIcon
               width={size}
@@ -147,7 +147,7 @@ const ScrollButtons = memo(({
             ref={btnRef}
             style={btnStyle}
             data-testid="after-btn"
-            onClick={() => scrollToPosition(100)}
+            onClick={(): void => scrollToPosition(100)}
             className={classNames(
               {
                 'end-0': !isVertical,

@@ -8,6 +8,7 @@ interface Props {
 }
 
 // AUTHOR: Ankush Syal https://www.svgrepo.com/svg/520912/right-arrow
+// edited for react code purposes
 function RightArrowIcon({
   rotate,
   width = 24,
